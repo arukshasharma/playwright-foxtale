@@ -16,7 +16,7 @@ module.exports = defineConfig({
   use: {
     baseURL: 'https://www.foxtale.in',
     browserName: 'chromium',
-    headless: false,
+    headless: !!process.env.CI,  // headless in CI, headed locally
     viewport: { width: 1280, height: 720 },
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
