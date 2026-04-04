@@ -29,8 +29,18 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Run Playwright tests
-        run: npx playwright test --project=chromium
+      - name: Run Homepage tests
+        run: npx playwright test tests/foxtale/HomePage.spec.js --project=chromium
+        env:
+          CI: true
+
+      - name: Run Search tests
+        run: npx playwright test tests/foxtale/search.spec.js --project=chromium
+        env:
+          CI: true
+
+      - name: Run Product tests
+        run: npx playwright test tests/foxtale/product.spec.js --project=chromium
         env:
           CI: true
 
