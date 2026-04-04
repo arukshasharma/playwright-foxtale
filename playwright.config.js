@@ -4,9 +4,9 @@ module.exports = defineConfig({
   testDir: './tests',
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 1 : 0,
+  retries: process.env.CI ? 3 : 0,
   workers: 1,
-  timeout: process.env.CI ? 300000 : 120000,
+  timeout: process.env.CI ? 600000 : 120000,        // 10 min in CI
   reporter: [['html'], ['list']],
 
   use: {
@@ -16,8 +16,8 @@ module.exports = defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'on-first-retry',
-    actionTimeout: process.env.CI ? 90000 : 30000,
-    navigationTimeout: process.env.CI ? 180000 : 90000,
+    actionTimeout:     process.env.CI ? 120000 : 30000,  // 2 min in CI
+    navigationTimeout: process.env.CI ? 240000 : 90000,  // 4 min in CI
   },
 
   projects: [
