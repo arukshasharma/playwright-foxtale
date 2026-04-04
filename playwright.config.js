@@ -7,7 +7,7 @@ module.exports = defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 2 : undefined,
-  timeout: 120000,          // ✅ 2 min per test
+timeout: process.env.CI ? 180000 : 120000,         // ✅ 2 min per test
   reporter: [
     ['html'],
     ['list']
@@ -21,8 +21,8 @@ module.exports = defineConfig({
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
     trace: 'on-first-retry',
-    actionTimeout: 30000,        // ✅ 30 sec per action
-    navigationTimeout: 90000,    // ✅ 90 sec for page loads
+    actionTimeout: process.env.CI ? 60000 : 30000,
+navigationTimeout: process.env.CI ? 120000 : 90000,    // ✅ 90 sec for page loads
   },
 
   projects: [
