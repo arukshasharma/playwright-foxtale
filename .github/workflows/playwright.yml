@@ -21,7 +21,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: 'npm'
 
       - name: Install dependencies
@@ -35,7 +35,7 @@ jobs:
           echo "Checking foxtale.in connectivity..."
           for i in {1..5}; do
             if curl -s --max-time 30 https://www.foxtale.in > /dev/null; then
-              echo "✅ Site is reachable"
+              echo "Site is reachable"
               break
             fi
             echo "Attempt $i failed, retrying in 10s..."

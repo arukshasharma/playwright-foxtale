@@ -4,19 +4,17 @@ class SearchPage extends BasePage {
   constructor(page) {
     super(page);
 
-    // locators
-    this.searchResults   = page.locator('[class*="product"], [class*="item"], [class*="card"]');
-    this.noResultsMsg    = page.locator('[class*="no-result"], [class*="empty"]');
-    this.firstProduct    = page.locator('[class*="product"], [class*="item"], [class*="card"]').first();
-    this.productTitle    = page.locator('[class*="product-title"], [class*="product-name"], h2, h3').first();
+    this.searchResults = page.locator('[class*="product"], [class*="item"], [class*="card"]');
+    this.firstProduct  = page.locator('a[href*="/products/"]').first();
   }
 
   async getResultsCount() {
+    await this.page.waitForTimeout(1000);
     return await this.searchResults.count();
   }
 
   async clickFirstProduct() {
-    await this.firstProduct.waitFor({ state: 'visible' });
+    await this.firstProduct.waitFor({ state: 'visible', timeout: 15000 });
     await this.firstProduct.click();
     await this.page.waitForLoadState('domcontentloaded');
   }

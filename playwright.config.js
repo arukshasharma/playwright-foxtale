@@ -7,7 +7,14 @@ module.exports = defineConfig({
   retries: process.env.CI ? 1 : 0,       // only 1 retry in CI
   workers: 1,
   timeout: process.env.CI ? 90000 : 120000,  // 90 sec per test in CI
-  reporter: [['html'], ['list']],
+  reporter: [ ['html'],
+  ['list'],
+  ['allure-playwright', {
+    detail: true,
+    outputFolder: 'allure-results',
+    suiteTitle: true,
+  }],
+],
 
   use: {
     baseURL: 'https://www.foxtale.in',

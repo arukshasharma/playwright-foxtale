@@ -6,3 +6,5 @@ playwright-report/
 *.png
 *.zip
 .env
+allure-results/
+allure-report/

@@ -42,6 +42,39 @@ Test Reports
 npx playwright show-report
 ```
 
+Allure Reporting
+----------------
+To generate an Allure report from Playwright results:
+
+1. Install dependencies:
+
+```bash
+npm install --save-dev @shelex/allure-playwright @shelex/allure-commandline
+```
+
+2. Run tests to produce results in `allure-results` (Playwright reporter is preconfigured):
+
+```bash
+npm test
+```
+
+3. Generate the Allure report and open it locally:
+
+```bash
+npm run allure:generate
+npm run allure:open
+```
+
+Or serve directly from results:
+
+```bash
+npm run allure:serve
+```
+
+Notes:
+- Playwright is configured to write results to `allure-results` via the `@shelex/allure-playwright` reporter.
+- You can attach screenshots/videos to Allure from tests using the Allure API if desired.
+
  CI/CD with GitHub Actions
 This project uses **GitHub Actions** to automatically run tests on every push and pull request.
 
