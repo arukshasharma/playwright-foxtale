@@ -1,4 +1,4 @@
-const { BasePage } = require('./basepage');
+const { BasePage } = require('./1basepage');
 
 class HomePage extends BasePage {
   constructor(page) {
@@ -11,16 +11,16 @@ class HomePage extends BasePage {
     await this.navigate('/');
     await this.page.waitForLoadState('domcontentloaded');
   }
-
-  // ✅ navigate directly to search URL — bypasses flaky button click
+  
   async searchForProduct(productName) {
-    await this.page.goto(`/search?q=${encodeURIComponent(productName)}`, {
-      waitUntil: 'domcontentloaded',
-      timeout: 60000,
-    });
-    await this.page.waitForTimeout(2000);
-    console.log('✅ Navigated to search URL:', this.page.url());
-  }
+  await this.page.waitForLoadState('domcontentloaded');
+  await this.page.waitForTimeout(1000);
+  await this.page.goto(`/search?q=${encodeURIComponent(productName)}`, {
+    waitUntil: 'domcontentloaded',
+    timeout: 90000,
+  });
+  await this.page.waitForTimeout(2000);
+}
 
   async clickLogo() {
     await this.logo.click();

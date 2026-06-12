@@ -1,4 +1,5 @@
 const { test, expect } = require('@playwright/test');
+const { HomePage } = require('../../pages/2homepage');
 test.describe('Foxtale Homepage', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/',{waitUntil: 'domcontentloaded', timeout: 60000 });

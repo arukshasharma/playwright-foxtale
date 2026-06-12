@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
-const { HomePage }     = require('../../pages/homepage');
-const { SearchPage }   = require('../../pages/searchpage');
+const { HomePage }   = require('../../pages/2homepage');
+const { SearchPage } = require('../../pages/3searchpage');
 
 test.describe('Foxtale Product Search', () => {
 

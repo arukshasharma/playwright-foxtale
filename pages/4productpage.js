@@ -1,4 +1,4 @@
-const { BasePage } = require('./basepage');
+const { BasePage } = require('./1basepage');
 
 class ProductPage extends BasePage {
   constructor(page) {
@@ -33,15 +33,15 @@ class ProductPage extends BasePage {
   }
 
   async selectFirstVariant() {
-    const count = await this.variantBtns.count();
-    if (count > 0) {
-      await this.variantBtns.first().click();
-      await this.page.waitForTimeout(1000);
-      console.log('✅ Variant selected');
-    } else {
-      console.log('ℹ️ No variants found, skipping');
-    }
+  const variantBtn = this.page.locator('button').filter({ hasText: /^(50ml|80ml|50g|80g|30ml|100ml|100g)$/i }).first();
+  const count = await variantBtn.count();
+  if (count > 0) {
+    await variantBtn.click();
+    await this.page.waitForTimeout(1000);
+    console.log('Variant selected');
+  } else {
+    console.log('No variants found, skipping');
   }
 }
-
+}
 module.exports = { ProductPage };

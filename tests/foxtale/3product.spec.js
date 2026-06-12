@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
-const { ProductPage }  = require('../../pages/productpage');
-const { CartPage }     = require('../../pages/cartpage');
+const { ProductPage } = require('../../pages/4productpage');
+const { CartPage }     = require('../../pages/5cartpage');
 
 const PRODUCT_SLUG  = 'glow-sunscreen';
 const PRODUCT_SLUG2 = 'niacinamide-clarifying-serum';
