@@ -11,7 +11,7 @@ Features
 
 Tech Stack
 * **Framework:** Playwright
-* **Language:** JavaScript / TypeScript
+* **Language:** JavaScript
 * **CI/CD:** GitHub Actions
 
 Project Structure
